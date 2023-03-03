@@ -10,7 +10,7 @@ An application that is used to write and save notes. It uses an Express.js back 
  * [User-Story](#user-story)
  * [Acceptance-Criteria](#acceptance-criteria)
  * [Installation](#installation)
- * [Application-Demonstration](#application-demonstration-1)
+ * [Application-Demonstration](#application-demonstration)
 
 
 ## User Story
