@@ -14,12 +14,13 @@ app.use(express.static('public'));
 
 // Sends Notes to notes.html
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/notes.html'));
+  res.sendFile(path.join(__dirname, './public/notes.html'));
+
 });
 
 // Defaults to home if there aren't any matching results
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
+app.get('*', (req, res) =>{
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 app.listen(PORT, () => {

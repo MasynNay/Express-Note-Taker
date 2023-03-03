@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 const router = require('express').Router();
 const fs = require('fs');
 const db = require('../db/db.json');
+const { json } = require('express');
 
 
 // Get Request
@@ -12,7 +13,7 @@ router.get('/notes', (req, res) => {
 });
 
 // Post Request
-router.post("/notes", (req, res) => {
+router.post('/notes', (req, res) => {
   const { title, textBody } = req.body;
 
   if (req.body) {
@@ -30,13 +31,13 @@ router.post("/notes", (req, res) => {
 });
 
 // Delete Request
-router.delete("/notes/:id", (req, res) => {
+router.delete('/notes/:id', (req, res) => {
 const note_id = req.params.id;
 readFromFile('./db/db.json')
 .then(data => JSON.parse(data))
-.then(notes => {
-  const newNotes = notes.filter(note => note.id!== note_id);
-  writeToFile('./db/db.json', JSON.stringify(newNotes));
+.then(json => {
+  const newNotes = json.filter(note => note.id !== note_id);
+  writeToFile('./db/db.json', newNotes);
   res.json(newNotes);
 });
 });
